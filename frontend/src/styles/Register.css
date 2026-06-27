@@ -1,0 +1,37 @@
+.register-btn{
+
+  padding:14px;
+
+  border:none;
+
+  border-radius:10px;
+
+  cursor:pointer;
+
+  background:#3b82f6;
+
+  color:white;
+
+  font-weight:600;
+}
+
+.login-text{
+
+  text-align:center;
+
+  margin-top:20px;
+}
+
+.login-text a{
+
+  color:#60a5fa;
+
+  text-decoration:none;
+
+  margin-left:5px;
+}
+
+.error{
+
+  color:#ef4444;
+}
