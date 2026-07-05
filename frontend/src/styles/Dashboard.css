@@ -1,0 +1,212 @@
+.dashboard-container{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:30px;
+
+}
+
+/* ===========================
+   Welcome Card
+=========================== */
+
+.welcome-card{
+
+    background:#111827;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+    padding:35px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+
+}
+
+.welcome-card h1{
+
+    color:white;
+
+    font-size:2rem;
+
+    margin-bottom:10px;
+
+}
+
+.welcome-card p{
+
+    color:#94a3b8;
+
+    line-height:1.7;
+
+    font-size:16px;
+
+}
+
+/* ===========================
+   Feature Cards
+=========================== */
+
+.quick-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
+
+}
+
+.feature-card{
+
+    background:#111827;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:18px;
+
+    padding:28px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.feature-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:#2563eb;
+
+    box-shadow:0 12px 25px rgba(37,99,235,.25);
+
+}
+
+.feature-card h2{
+
+    color:white;
+
+    font-size:1.3rem;
+
+    margin-bottom:12px;
+
+}
+
+.feature-card p{
+
+    color:#94a3b8;
+
+    line-height:1.6;
+
+}
+
+/* ===========================
+   Section Title
+=========================== */
+
+.section-title{
+
+    color:white;
+
+    font-size:1.6rem;
+
+    margin-top:10px;
+
+}
+
+/* ===========================
+   Statistics
+=========================== */
+
+.stats-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+
+    gap:20px;
+
+}
+
+.stat-card{
+
+    background:#111827;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:18px;
+
+    padding:30px;
+
+    text-align:center;
+
+    transition:.3s;
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-5px);
+
+    border-color:#22c55e;
+
+}
+
+.stat-card h3{
+
+    color:#94a3b8;
+
+    margin-bottom:15px;
+
+    font-weight:500;
+
+}
+
+.stat-card span{
+
+    color:white;
+
+    font-size:2.6rem;
+
+    font-weight:bold;
+
+}
+
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:768px){
+
+    .welcome-card{
+
+        padding:25px;
+
+    }
+
+    .welcome-card h1{
+
+        font-size:1.6rem;
+
+    }
+
+    .feature-card{
+
+        padding:22px;
+
+    }
+
+    .stat-card{
+
+        padding:22px;
+
+    }
+
+    
+
+}

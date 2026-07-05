@@ -1,149 +1,191 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import AuthLayout from "../components/AuthLayout/AuthLayout";
+import { Link, useNavigate } from "react-router-dom";
+import API from "../api/authApi";
 import "../styles/Register.css";
 
 function Register() {
 
-  const [name,setName] = useState("");
+  const navigate = useNavigate();
 
-  const [email,setEmail] = useState("");
+  const [name, setName] = useState("");
 
-  const [password,setPassword] =
-    useState("");
+  const [email, setEmail] = useState("");
 
-  const [confirmPassword,
-    setConfirmPassword] =
-    useState("");
+  const [password, setPassword] = useState("");
 
-  const [error,setError] =
-    useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handleSubmit = (e)=>{
+  const [error, setError] = useState("");
+
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
 
     e.preventDefault();
 
-    if(
+    if (
       !name ||
       !email ||
       !password ||
       !confirmPassword
-    ){
+    ) {
 
-      setError(
-        "Please fill all fields"
-      );
-
+      setError("Please fill all fields");
       return;
+
     }
 
-    if(
-      password !==
-      confirmPassword
-    ){
+    if (password !== confirmPassword) {
 
-      setError(
-        "Passwords do not match"
-      );
-
+      setError("Passwords do not match");
       return;
+
     }
 
     setError("");
 
-    console.log({
-      name,
-      email,
-      password
-    });
-  };
+    setLoading(true);
 
-  return(
+    try {
 
-    <AuthLayout>
+      const response = await API.post(
+        "/auth/register",
+        {
+          username: name,
+          email,
+          password,
+        }
+      );
 
-      <h1>
-        Create Account ✨
-      </h1>
+      alert(
+        response.data.message ||
+        "Registration Successful!"
+      );
 
-      <p>
-        Start learning smarter
-        with Learnora AI.
-      </p>
+      navigate("/login");
 
-      {
-        error &&
-        <p className="error">
-          {error}
-        </p>
+    }
+
+    catch (err) {
+
+      if (err.response) {
+
+        setError(
+          err.response.data.detail
+        );
+
       }
 
-      <form onSubmit={handleSubmit}>
+      else {
 
-        <input
-          type="text"
-          placeholder="Full Name"
-          value={name}
-          onChange={(e)=>
-            setName(
-              e.target.value
-            )
-          }
-        />
+        setError(
+          "Server not responding"
+        );
 
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e)=>
-            setEmail(
-              e.target.value
-            )
-          }
-        />
+      }
 
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e)=>
-            setPassword(
-              e.target.value
-            )
-          }
-        />
+    }
 
-        <input
-          type="password"
-          placeholder="Confirm Password"
-          value={confirmPassword}
-          onChange={(e)=>
-            setConfirmPassword(
-              e.target.value
-            )
-          }
-        />
+    finally {
 
-        <button
-          className="register-btn"
-        >
-          Create Account
-        </button>
+      setLoading(false);
 
-      </form>
+    }
 
-      <p className="login-text">
+  };
 
-        Already have an account?
+  return (
 
-        <Link to="/login">
-          Login
-        </Link>
+    <div className="register">
 
-      </p>
+      <div className="register-card">
 
-    </AuthLayout>
+        <h1>
+          Create Account ✨
+        </h1>
+
+        <p>
+          Start learning smarter
+          with Learnora AI.
+        </p>
+
+        {
+          error &&
+          <p className="error">
+            {error}
+          </p>
+        }
+
+        <form onSubmit={handleSubmit}>
+
+          <input
+            type="text"
+            placeholder="Full Name"
+            value={name}
+            onChange={(e) =>
+              setName(e.target.value)
+            }
+          />
+
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) =>
+              setEmail(e.target.value)
+            }
+          />
+
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) =>
+              setPassword(e.target.value)
+            }
+          />
+
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            value={confirmPassword}
+            onChange={(e) =>
+              setConfirmPassword(
+                e.target.value
+              )
+            }
+          />
+
+          <button
+            type="submit"
+            className="register-btn"
+            disabled={loading}
+          >
+            {
+              loading
+                ? "Creating Account..."
+                : "Create Account"
+            }
+          </button>
+
+        </form>
+
+        <p className="login-text">
+
+          Already have an account?
+
+          <Link to="/login">
+            Login
+          </Link>
+
+        </p>
+
+      </div>
+
+    </div>
+
   );
+
 }
 
 export default Register;
