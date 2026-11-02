@@ -9,7 +9,6 @@ function Upload() {
     const navigate = useNavigate();
 
     const [file, setFile] = useState(null);
-    const [text, setText] = useState("");
     const [loading, setLoading] = useState(false);
 
     const handleUpload = async () => {
@@ -38,8 +37,6 @@ function Upload() {
 
             const pdfText = res.data.text;
 
-            setText(pdfText);
-
             // Store PDF text for all AI modules
             await Promise.all([
                 uploadAPI.post("/notes/store", {
@@ -59,11 +56,49 @@ function Upload() {
                 }),
             ]);
 
+            // ==========================
+            // Dashboard Statistics
+            // ==========================
+
+            const uploads =
+                JSON.parse(localStorage.getItem("uploads")) || [];
+
+            uploads.unshift({
+                name: file.name,
+                size: (file.size / 1024 / 1024).toFixed(2) + " MB",
+                uploadedAt: new Date().toLocaleString(),
+            });
+
+            localStorage.setItem(
+                "uploads",
+                JSON.stringify(uploads)
+            );
+
+            localStorage.setItem(
+                "resources",
+                uploads.length
+            );
+
+            localStorage.setItem(
+                "notes",
+                uploads.length
+            );
+
+            localStorage.setItem(
+                "flashcards",
+                uploads.length * 15
+            );
+
+            localStorage.setItem(
+                "quiz",
+                uploads.length * 10
+            );
+
             alert("PDF uploaded successfully!");
 
             setTimeout(() => {
                 navigate("/notes");
-            }, 1000);
+            }, 800);
 
         } catch (err) {
 
@@ -152,7 +187,9 @@ function Upload() {
 
                             </div>
 
-                            <p>Extracting PDF...</p>
+                            <p>
+                                Extracting PDF...
+                            </p>
 
                         </div>
 
@@ -164,9 +201,11 @@ function Upload() {
                         onClick={handleUpload}
                     >
 
-                        {loading
-                            ? "Processing..."
-                            : "Generate AI Notes"}
+                        {
+                            loading
+                                ? "Processing..."
+                                : "Generate AI Notes"
+                        }
 
                     </button>
 

@@ -1,110 +1,172 @@
-import Layout from "../components/layout/Layout";
 import { useNavigate } from "react-router-dom";
+import Layout from "../components/layout/Layout";
 import "../styles/Dashboard.css";
 
 function Dashboard() {
 
     const navigate = useNavigate();
 
-    
+    const hour = new Date().getHours();
+
+    let greeting = "Good Evening";
+
+    if (hour < 12) {
+        greeting = "Good Morning";
+    } else if (hour < 18) {
+        greeting = "Good Afternoon";
+    }
+
+    const stats = [
+        {
+            title: "Resources",
+            value: "1",
+            icon: "📄"
+        },
+        {
+            title: "AI Notes",
+            value: "1",
+            icon: "📝"
+        },
+        {
+            title: "Flashcards",
+            value: "15",
+            icon: "🃏"
+        },
+        {
+            title: "Quiz",
+            value: "10",
+            icon: "🧠"
+        }
+    ];
 
     return (
 
         <Layout>
 
-            <div className="dashboard-container">
+            <div className="dashboard-page">
 
-                <div className="welcome-card">
+                <div className="dashboard-header">
 
-                    <h1>👋 Welcome to Learnora AI</h1>
+                    <div>
 
-                    <p>
+                        <h1>{greeting} 👋</h1>
 
-                        Your AI-powered learning companion for studying smarter.
+                        <p>
+                            Welcome to Learnora AI. Continue your learning journey.
+                        </p>
 
-                    </p>
+                    </div>
 
                 </div>
 
-                <div className="quick-grid">
+                {/* Statistics */}
+
+                <div className="stats-grid">
+
+                    {
+                        stats.map((item, index) => (
+
+                            <div
+                                className="stat-card"
+                                key={index}
+                            >
+
+                                <div className="stat-icon">
+                                    {item.icon}
+                                </div>
+
+                                <h2>{item.value}</h2>
+
+                                <p>{item.title}</p>
+
+                            </div>
+
+                        ))
+                    }
+
+                </div>
+
+                {/* Quick Actions */}
+
+                <h2 className="section-title">
+                    Quick Actions
+                </h2>
+
+                <div className="action-grid">
 
                     <div
-                        className="feature-card"
+                        className="action-card"
                         onClick={() => navigate("/upload")}
                     >
-                        <h2>📄 Upload PDF</h2>
+                        <span>📄</span>
+                        <h3>Upload PDF</h3>
                         <p>Upload study material.</p>
                     </div>
 
                     <div
-                        className="feature-card"
+                        className="action-card"
                         onClick={() => navigate("/notes")}
                     >
-                        <h2>📝 Smart Notes</h2>
+                        <span>📝</span>
+                        <h3>Smart Notes</h3>
                         <p>Generate AI notes.</p>
                     </div>
 
                     <div
-                        className="feature-card"
-                        onClick={() => navigate("/quiz")}
+                        className="action-card"
+                        onClick={() => navigate("/flashcards")}
                     >
-                        <h2>🧠 AI Quiz</h2>
-                        <p>Practice automatically.</p>
+                        <span>🃏</span>
+                        <h3>Flashcards</h3>
+                        <p>Revise with AI cards.</p>
                     </div>
 
                     <div
-                        className="feature-card"
+                        className="action-card"
+                        onClick={() => navigate("/quiz")}
+                    >
+                        <span>🧠</span>
+                        <h3>AI Quiz</h3>
+                        <p>Test your knowledge.</p>
+                    </div>
+
+                    <div
+                        className="action-card"
                         onClick={() => navigate("/chat")}
                     >
-                        <h2>🤖 AI Chat</h2>
+                        <span>💬</span>
+                        <h3>AI Chat</h3>
                         <p>Ask questions instantly.</p>
                     </div>
 
                 </div>
 
+                {/* Recent Activity */}
+
                 <h2 className="section-title">
-
-                    Learning Overview
-
+                    Recent Activity
                 </h2>
 
-                <div className="stats-grid">
+                <div className="recent-card">
 
-                    <div className="stat-card">
+                    <div className="recent-left">
 
-                        <h3>PDFs</h3>
+                        <h3>📄 No Recent Files</h3>
 
-                        <span>1</span>
-
-                    </div>
-
-                    <div className="stat-card">
-
-                        <h3>Notes</h3>
-
-                        <span>1</span>
+                        <p>
+                            Your uploaded study materials will appear here.
+                        </p>
 
                     </div>
 
-                    <div className="stat-card">
-
-                        <h3>Quizzes</h3>
-
-                        <span>1</span>
-
-                    </div>
-
-                    <div className="stat-card">
-
-                        <h3>AI Chats</h3>
-
-                        <span>0</span>
-
-                    </div>
+                    <button
+                        className="upload-now-btn"
+                        onClick={() => navigate("/upload")}
+                    >
+                        Upload Now
+                    </button>
 
                 </div>
-
-                
 
             </div>
 
