@@ -361,3 +361,19 @@ SRM Madurai College for Engineering and Technology
 * Database Management
 
 **Learnora AI – Transforming study materials into smarter learning experiences.**
+
+**ScreenShots**
+
+![alt text](<Screenshot 2026-07-04 190315-1.png>) 
+![alt text](<Screenshot 2026-07-04 190405-1.png>) 
+![alt text](<Screenshot 2026-07-04 190426-1.png>) 
+![alt text](<Screenshot 2026-07-04 190445-1.png>) 
+![alt text](<Screenshot 2026-07-04 190555-1.png>) 
+![alt text](<Screenshot 2026-07-04 190627-1.png>) 
+![alt text](<Screenshot 2026-07-04 190705-1.png>) 
+![alt text](<Screenshot 2026-07-04 190739-1.png>) 
+![alt text](<Screenshot 2026-07-05 135556-1.png>) 
+![alt text](<Screenshot 2026-07-05 135616-1.png>) 
+![alt text](<Screenshot 2026-07-05 135659-1.png>) 
+![alt text](<Screenshot 2026-07-05 135811-1.png>) 
+![alt text](<Screenshot 2026-07-05 135833-1.png>)
