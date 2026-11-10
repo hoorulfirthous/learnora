@@ -362,3 +362,24 @@ SRM Madurai College for Engineering and Technology
 
 **Learnora AI – Transforming study materials into smarter learning experiences.**
 
+**ScreenShots**
+
+<img width="1883" height="1030" alt="Screenshot 2026-07-04 190315" src="https://github.com/user-attachments/assets/f0c88278-fef0-4049-bd8c-9fa97ffa40c3" />
+<img width="1890" height="1007" alt="Screenshot 2026-07-04 190426" src="https://github.com/user-attachments/assets/e176308a-612c-4fb4-b3cc-db7b4f4e7038" />
+<img width="1893" height="1007" alt="Screenshot 2026-07-04 190445" src="https://github.com/user-attachments/assets/9d78dfde-ed21-4e95-92ef-37f7a1f52453" />
+<img width="1897" height="1027" alt="Screenshot 2026-07-04 190555" src="https://github.com/user-attachments/assets/219ca726-799e-4752-b283-aeba4bdbd80a" />
+<img width="1892" height="1018" alt="Screenshot 2026-07-04 190627" src="https://github.com/user-attachments/assets/41cecb79-5026-46cd-bf69-220a4bc308e1" />
+<img width="1852" height="1007" alt="Screenshot 2026-07-04 190705" src="https://github.com/user-attachments/assets/57c60fb5-5c08-41f0-9b42-61addac5d9d8" />
+<img width="1872" height="997" alt="Screenshot 2026-07-04 190739" src="https://github.com/user-attachments/assets/c5f160e5-9b2a-458a-bf5d-92272b1cc395" />
+<img width="1807" height="977" alt="Screenshot 2026-07-05 135616" src="https://github.com/user-attachments/assets/15a35c81-7d9e-441b-96aa-378cc362b7d2" />
+<img width="1892" height="1016" alt="Screenshot 2026-07-05 135811" src="https://github.com/user-attachments/assets/f2182856-dde0-4134-84a2-d9738778f911" />
+
+
+
+
+
+
+
+
+
+
